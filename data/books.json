@@ -1,0 +1,302 @@
+[
+  {
+    "id": 1,
+    "title": "Sample Book 1",
+    "author": "B. Diaz",
+    "isbn": "978-1-4028-1001",
+    "category": "Non-fiction",
+    "year": 2001,
+    "copies": 3,
+    "available": 2
+  },
+  {
+    "id": 2,
+    "title": "Sample Book 2",
+    "author": "C. Evans",
+    "isbn": "978-1-4028-1002",
+    "category": "Science",
+    "year": 2002,
+    "copies": 4,
+    "available": 3
+  },
+  {
+    "id": 3,
+    "title": "Sample Book 3",
+    "author": "D. Foster",
+    "isbn": "978-1-4028-1003",
+    "category": "Technology",
+    "year": 2003,
+    "copies": 5,
+    "available": 1
+  },
+  {
+    "id": 4,
+    "title": "Sample Book 4",
+    "author": "E. Gupta",
+    "isbn": "978-1-4028-1004",
+    "category": "History",
+    "year": 2004,
+    "copies": 2,
+    "available": 2
+  },
+  {
+    "id": 5,
+    "title": "Sample Book 5",
+    "author": "F. Huang",
+    "isbn": "978-1-4028-1005",
+    "category": "Biography",
+    "year": 2005,
+    "copies": 3,
+    "available": 3
+  },
+  {
+    "id": 6,
+    "title": "Sample Book 6",
+    "author": "G. Ito",
+    "isbn": "978-1-4028-1006",
+    "category": "Mystery",
+    "year": 2006,
+    "copies": 4,
+    "available": 1
+  },
+  {
+    "id": 7,
+    "title": "Sample Book 7",
+    "author": "H. Johnson",
+    "isbn": "978-1-4028-1007",
+    "category": "Children",
+    "year": 2007,
+    "copies": 5,
+    "available": 2
+  },
+  {
+    "id": 8,
+    "title": "Sample Book 8",
+    "author": "I. Kim",
+    "isbn": "978-1-4028-1008",
+    "category": "Fantasy",
+    "year": 2008,
+    "copies": 2,
+    "available": 3
+  },
+  {
+    "id": 9,
+    "title": "Sample Book 9",
+    "author": "J. Lopez",
+    "isbn": "978-1-4028-1009",
+    "category": "Education",
+    "year": 2009,
+    "copies": 3,
+    "available": 1
+  },
+  {
+    "id": 10,
+    "title": "Sample Book 10",
+    "author": "K. Mehta",
+    "isbn": "978-1-4028-1010",
+    "category": "Fiction",
+    "year": 2010,
+    "copies": 4,
+    "available": 2
+  },
+  {
+    "id": 11,
+    "title": "Sample Book 11",
+    "author": "L. Novak",
+    "isbn": "978-1-4028-1011",
+    "category": "Non-fiction",
+    "year": 2011,
+    "copies": 5,
+    "available": 3
+  },
+  {
+    "id": 12,
+    "title": "Sample Book 12",
+    "author": "A. Carter",
+    "isbn": "978-1-4028-1012",
+    "category": "Science",
+    "year": 2012,
+    "copies": 2,
+    "available": 1
+  },
+  {
+    "id": 13,
+    "title": "Sample Book 13",
+    "author": "B. Diaz",
+    "isbn": "978-1-4028-1013",
+    "category": "Technology",
+    "year": 2013,
+    "copies": 3,
+    "available": 2
+  },
+  {
+    "id": 14,
+    "title": "Sample Book 14",
+    "author": "C. Evans",
+    "isbn": "978-1-4028-1014",
+    "category": "History",
+    "year": 2014,
+    "copies": 4,
+    "available": 3
+  },
+  {
+    "id": 15,
+    "title": "Sample Book 15",
+    "author": "D. Foster",
+    "isbn": "978-1-4028-1015",
+    "category": "Biography",
+    "year": 2015,
+    "copies": 5,
+    "available": 1
+  },
+  {
+    "id": 16,
+    "title": "Sample Book 16",
+    "author": "E. Gupta",
+    "isbn": "978-1-4028-1016",
+    "category": "Mystery",
+    "year": 2016,
+    "copies": 2,
+    "available": 2
+  },
+  {
+    "id": 17,
+    "title": "Sample Book 17",
+    "author": "F. Huang",
+    "isbn": "978-1-4028-1017",
+    "category": "Children",
+    "year": 2017,
+    "copies": 3,
+    "available": 3
+  },
+  {
+    "id": 18,
+    "title": "Sample Book 18",
+    "author": "G. Ito",
+    "isbn": "978-1-4028-1018",
+    "category": "Fantasy",
+    "year": 2018,
+    "copies": 4,
+    "available": 1
+  },
+  {
+    "id": 19,
+    "title": "Sample Book 19",
+    "author": "H. Johnson",
+    "isbn": "978-1-4028-1019",
+    "category": "Education",
+    "year": 2019,
+    "copies": 5,
+    "available": 2
+  },
+  {
+    "id": 20,
+    "title": "Sample Book 20",
+    "author": "I. Kim",
+    "isbn": "978-1-4028-1020",
+    "category": "Fiction",
+    "year": 2020,
+    "copies": 2,
+    "available": 3
+  },
+  {
+    "id": 21,
+    "title": "Sample Book 21",
+    "author": "J. Lopez",
+    "isbn": "978-1-4028-1021",
+    "category": "Non-fiction",
+    "year": 2021,
+    "copies": 3,
+    "available": 1
+  },
+  {
+    "id": 22,
+    "title": "Sample Book 22",
+    "author": "K. Mehta",
+    "isbn": "978-1-4028-1022",
+    "category": "Science",
+    "year": 2022,
+    "copies": 4,
+    "available": 2
+  },
+  {
+    "id": 23,
+    "title": "Sample Book 23",
+    "author": "L. Novak",
+    "isbn": "978-1-4028-1023",
+    "category": "Technology",
+    "year": 2023,
+    "copies": 5,
+    "available": 3
+  },
+  {
+    "id": 24,
+    "title": "Sample Book 24",
+    "author": "A. Carter",
+    "isbn": "978-1-4028-1024",
+    "category": "History",
+    "year": 2000,
+    "copies": 2,
+    "available": 1
+  },
+  {
+    "id": 25,
+    "title": "Sample Book 25",
+    "author": "B. Diaz",
+    "isbn": "978-1-4028-1025",
+    "category": "Biography",
+    "year": 2001,
+    "copies": 3,
+    "available": 2
+  },
+  {
+    "id": 26,
+    "title": "Sample Book 26",
+    "author": "C. Evans",
+    "isbn": "978-1-4028-1026",
+    "category": "Mystery",
+    "year": 2002,
+    "copies": 4,
+    "available": 3
+  },
+  {
+    "id": 27,
+    "title": "Sample Book 27",
+    "author": "D. Foster",
+    "isbn": "978-1-4028-1027",
+    "category": "Children",
+    "year": 2003,
+    "copies": 5,
+    "available": 1
+  },
+  {
+    "id": 28,
+    "title": "Sample Book 28",
+    "author": "E. Gupta",
+    "isbn": "978-1-4028-1028",
+    "category": "Fantasy",
+    "year": 2004,
+    "copies": 2,
+    "available": 2
+  },
+  {
+    "id": 29,
+    "title": "Sample Book 29",
+    "author": "F. Huang",
+    "isbn": "978-1-4028-1029",
+    "category": "Education",
+    "year": 2005,
+    "copies": 3,
+    "available": 3
+  },
+  {
+    "id": 30,
+    "title": "Sample Book 30",
+    "author": "G. Ito",
+    "isbn": "978-1-4028-1030",
+    "category": "Fiction",
+    "year": 2006,
+    "copies": 4,
+    "available": 1
+  }
+]

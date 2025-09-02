@@ -1,0 +1,22 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>Add Book — LMS</title><link rel='stylesheet' href='../common/css/base.css'><link rel='stylesheet' href='css/add-book.css'><script src='https://code.jquery.com/jquery-3.7.1.min.js' integrity='sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=' crossorigin='anonymous'></script><script src='../common/js/ui.js' defer></script><script src='../common/js/auth.js' defer></script><script src='../common/js/data.js' defer></script></head><body><script>window.addEventListener('DOMContentLoaded', function(){ LMS_AUTH.requireLogin('admin'); });</script><header class='header'></header><main class='page'><div class='container'>
+<form id="addBookForm" class="card">
+  <div class="form-row">
+    <div><label>Title</label><input class="input" id="title"></div>
+    <div><label>Author</label><input class="input" id="author"></div>
+  </div>
+  <div class="space"></div>
+  <div class="form-row">
+    <div><label>ISBN</label><input class="input" id="isbn"></div>
+    <div><label>Category</label><input class="input" id="category"></div>
+  </div>
+  <div class="space"></div>
+  <div class="form-row">
+    <div><label>Year</label><input class="input" id="year" type="number" value="2024"></div>
+    <div><label>Copies</label><input class="input" id="copies" type="number" value="2"></div>
+  </div>
+  <div class="space"></div>
+  <button class="btn btn-primary">Save</button>
+  <a class="btn" href="books.html">Cancel</a>
+</form>
+<div id="addMsg" class="small"></div>
+</div></main><script src='js/add-book.js' defer></script><footer class='footer'><div class='container'><div class='flex' style='justify-content: space-between;'><div class='small'>© 2025 LMS Starter Template</div><div class='small'>Light/Dark • Responsive • jQuery</div></div></div></footer><script>window.addEventListener('DOMContentLoaded', function(){ LMS_UI.buildHeader({prefix: '../'}); });</script></body></html>

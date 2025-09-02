@@ -1,0 +1,18 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>Login — LMS</title><link rel='stylesheet' href='./common/css/base.css'><link rel='stylesheet' href='css/login.css'><script src='https://code.jquery.com/jquery-3.7.1.min.js' integrity='sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=' crossorigin='anonymous'></script><script src='./common/js/ui.js' defer></script><script src='./common/js/auth.js' defer></script><script src='./common/js/data.js' defer></script></head><body><header class='header'></header><main class='page'><div class='container'>
+<section class="grid grid-2">
+  <div class="card">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <div><label>Email</label><input class="input" type="email" id="email" placeholder="e.g. admin@demo.com" required></div>
+      <div class="space"></div>
+      <div><label>Password</label><input class="input" type="password" id="password" placeholder="••••••••" required></div>
+      <div class="space"></div>
+      <button class="btn btn-primary" type="submit">Sign in</button>
+      <a class="btn" href="register.html">Create account</a>
+    </form>
+    <div class="space"></div><div id="loginMsg" class="small"></div>
+    <div class="space"></div><div class="small">Demo: admin@demo.com / admin123 • user@demo.com / user123</div>
+  </div>
+  <div class="card"><h3>What you'll see</h3><p><strong>Admin</strong> → Dashboard, Books, Members, Issue/Return, Reservations, Reports.<br><strong>User</strong> → Home, Catalog, My Loans/Reservations, Account, Support.</p></div>
+</section>
+</div></main><script src='js/login.js' defer></script><footer class='footer'><div class='container'><div class='flex' style='justify-content: space-between;'><div class='small'>© 2025 LMS Starter Template</div><div class='small'>Light/Dark • Responsive • jQuery</div></div></div></footer><script>window.addEventListener('DOMContentLoaded', function(){ LMS_UI.buildHeader({prefix: './'}); });</script></body></html>

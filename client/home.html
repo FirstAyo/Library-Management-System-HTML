@@ -1,0 +1,11 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>Client Home — LMS</title><link rel='stylesheet' href='../common/css/base.css'><link rel='stylesheet' href='css/home.css'><script src='https://code.jquery.com/jquery-3.7.1.min.js' integrity='sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=' crossorigin='anonymous'></script><script src='../common/js/ui.js' defer></script><script src='../common/js/auth.js' defer></script><script src='../common/js/data.js' defer></script></head><body><script>window.addEventListener('DOMContentLoaded', function(){ LMS_AUTH.requireLogin('user'); });</script><header class='header'></header><main class='page'><div class='container'>
+<div class="grid grid-2">
+  <div class="card"><h3>Catalog</h3><p>Browse all books.</p><a class="btn" href="catalog.html">Open Catalog</a></div>
+  <div class="card"><h3>My Loans</h3><p>View your current loans and due dates.</p><a class="btn" href="my-loans.html">My Loans</a></div>
+</div>
+<div class="space"></div>
+<div class="grid grid-2">
+  <div class="card"><h3>My Reservations</h3><p>See your holds.</p><a class="btn" href="my-reservations.html">My Reservations</a></div>
+  <div class="card"><h3>Account</h3><p>Update profile and preferences.</p><a class="btn" href="my-account.html">My Account</a></div>
+</div>
+</div></main><footer class='footer'><div class='container'><div class='flex' style='justify-content: space-between;'><div class='small'>© 2025 LMS Starter Template</div><div class='small'>Light/Dark • Responsive • jQuery</div></div></div></footer><script>window.addEventListener('DOMContentLoaded', function(){ LMS_UI.buildHeader({prefix: '../'}); });</script></body></html>

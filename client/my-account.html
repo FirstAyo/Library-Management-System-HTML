@@ -1,0 +1,8 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>My Account — LMS</title><link rel='stylesheet' href='../common/css/base.css'><link rel='stylesheet' href='css/my-account.css'><script src='https://code.jquery.com/jquery-3.7.1.min.js' integrity='sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=' crossorigin='anonymous'></script><script src='../common/js/ui.js' defer></script><script src='../common/js/auth.js' defer></script><script src='../common/js/data.js' defer></script></head><body><script>window.addEventListener('DOMContentLoaded', function(){ LMS_AUTH.requireLogin('user'); });</script><header class='header'></header><main class='page'><div class='container'>
+<div class="grid grid-2">
+  <div class="card"><h3>Profile</h3><div id="profile"></div></div>
+  <div class="card"><h3>Preferences</h3><p>Theme, notifications, etc. (demo)</p>
+    <button class="btn" onclick="LMS_UI.toggleTheme()">Toggle Theme</button>
+  </div>
+</div>
+</div></main><script src='js/my-account.js' defer></script><footer class='footer'><div class='container'><div class='flex' style='justify-content: space-between;'><div class='small'>© 2025 LMS Starter Template</div><div class='small'>Light/Dark • Responsive • jQuery</div></div></div></footer><script>window.addEventListener('DOMContentLoaded', function(){ LMS_UI.buildHeader({prefix: '../'}); });</script></body></html>

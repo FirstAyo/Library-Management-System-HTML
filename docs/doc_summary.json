@@ -1,0 +1,11 @@
+{
+  "web_root": "/mnt/data/LMS-Template/LMS-Template-v3",
+  "pages_count": 20,
+  "css_count": 21,
+  "js_count": 16,
+  "detected_dependencies": {
+    "jQuery": [
+      "https://code.jquery.com/jquery-3.7.1.min.js"
+    ]
+  }
+}
