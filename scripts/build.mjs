@@ -1,4 +1,4 @@
-import { mkdir, cp, rm, readFile } from 'node:fs/promises';
+import { mkdir, cp, rm, readFile, access } from 'node:fs/promises';
 import { resolve, dirname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -14,6 +14,7 @@ await rm(release,{recursive:true,force:true});await mkdir(release,{recursive:tru
 await mkdir(resolve(release,'common/css'),{recursive:true});
 await cp(resolve(root,'common/css/folio.css'),resolve(release,'common/css/folio.css'));
 for(const folder of ['common/assets','data'])await cp(resolve(root,folder),resolve(release,folder),{recursive:true});
+for(const file of ['404.html','_headers','vercel.json']){const source=resolve(root,file);try{await access(source);}catch{continue;}await cp(source,resolve(release,file));}
 const modules=['app.js','api.js','config.js','navigation.js','view.js','theme.js','pages-public.js','pages-admin.js','pages-member.js','services/index.js','services/demo.js'];
 for(const file of modules){const dest=resolve(release,'common/js',file);await mkdir(dirname(dest),{recursive:true});await cp(resolve(root,'common/js',file),dest);}
 execFileSync(process.execPath,[resolve(root,'scripts/generate-pages.mjs'),'--out','release','--site',site.href],{stdio:'inherit'});
