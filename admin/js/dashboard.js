@@ -1,0 +1,16 @@
+
+(async function(){
+  const [books, members, loans] = await Promise.all([
+    LMS_DATA.fetchJSON('../data/books.json'),
+    LMS_DATA.fetchJSON('../data/members.json'),
+    LMS_DATA.fetchJSON('../data/loans.json'),
+  ]);
+  const extra = LMS_DATA.readExtras('books_extra');
+  const allBooks = books.concat(extra);
+  document.getElementById('statBooks').textContent = allBooks.length + ' total';
+  document.getElementById('statMembers').textContent = members.length + ' total';
+  document.getElementById('statLoans').textContent = loans.filter(l=>!l.returned).length + ' active';
+
+  const recent = ['User reserved Sample Book 5','Member 3 returned Sample Book 12','Admin added new book in Technology'];
+  document.getElementById('activity').innerHTML = recent.map(x=>'<li>'+x+'</li>').join('');
+})();

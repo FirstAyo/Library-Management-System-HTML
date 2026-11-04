@@ -1,0 +1,1 @@
+try { document.documentElement.dataset.theme = localStorage.getItem('lms_theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch { /* Use the default light theme if storage is unavailable. */ }

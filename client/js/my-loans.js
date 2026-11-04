@@ -1,0 +1,15 @@
+
+(async function(){
+  const user = LMS_AUTH.currentUser();
+  const loans = await LMS_DATA.fetchJSON('../data/loans.json');
+  const books = await LMS_DATA.fetchJSON('../data/books.json');
+  const extras = LMS_DATA.readExtras('books_extra');
+  const allBooks = books.concat(extras);
+  const my = (user ? loans.filter(l => l.memberEmail === user.email) : []);
+  const body = document.getElementById('loansBody');
+  body.innerHTML = my.map(l=>{
+    const b = allBooks.find(x=>x.id===l.bookId) || {title:'Unknown'};
+    const status = l.returned ? '<span class="badge ok">Returned</span>' : '<span class="badge warn">Due ' + l.dueDate + '</span>';
+    return `<tr><td>${b.title}</td><td>${l.issueDate}</td><td>${l.dueDate}</td><td>${status}</td></tr>`;
+  }).join('') || '<tr><td colspan="4">No loans.</td></tr>';
+})();

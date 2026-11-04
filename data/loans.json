@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "bookId": 2,
+    "memberEmail": "member2@demo.com",
+    "issueDate": "2025-06-11",
+    "dueDate": "2025-08-21",
+    "returned": false
+  },
+  {
+    "id": 2,
+    "bookId": 3,
+    "memberEmail": "user@demo.com",
+    "issueDate": "2025-06-12",
+    "dueDate": "2025-08-22",
+    "returned": false
+  },
+  {
+    "id": 3,
+    "bookId": 4,
+    "memberEmail": "member4@demo.com",
+    "issueDate": "2025-06-13",
+    "dueDate": "2025-08-23",
+    "returned": true
+  },
+  {
+    "id": 4,
+    "bookId": 5,
+    "memberEmail": "user@demo.com",
+    "issueDate": "2025-06-14",
+    "dueDate": "2025-08-24",
+    "returned": false
+  },
+  {
+    "id": 5,
+    "bookId": 6,
+    "memberEmail": "member6@demo.com",
+    "issueDate": "2025-06-15",
+    "dueDate": "2025-08-25",
+    "returned": false
+  },
+  {
+    "id": 6,
+    "bookId": 7,
+    "memberEmail": "user@demo.com",
+    "issueDate": "2025-06-16",
+    "dueDate": "2025-08-26",
+    "returned": true
+  },
+  {
+    "id": 7,
+    "bookId": 8,
+    "memberEmail": "member8@demo.com",
+    "issueDate": "2025-06-17",
+    "dueDate": "2025-08-27",
+    "returned": false
+  },
+  {
+    "id": 8,
+    "bookId": 9,
+    "memberEmail": "user@demo.com",
+    "issueDate": "2025-06-18",
+    "dueDate": "2025-08-28",
+    "returned": false
+  },
+  {
+    "id": 9,
+    "bookId": 10,
+    "memberEmail": "member10@demo.com",
+    "issueDate": "2025-06-10",
+    "dueDate": "2025-08-20",
+    "returned": true
+  },
+  {
+    "id": 10,
+    "bookId": 11,
+    "memberEmail": "user@demo.com",
+    "issueDate": "2025-06-11",
+    "dueDate": "2025-08-21",
+    "returned": false
+  },
+  {
+    "id": 11,
+    "bookId": 12,
+    "memberEmail": "member2@demo.com",
+    "issueDate": "2025-06-12",
+    "dueDate": "2025-08-22",
+    "returned": false
+  },
+  {
+    "id": 12,
+    "bookId": 13,
+    "memberEmail": "user@demo.com",
+    "issueDate": "2025-06-13",
+    "dueDate": "2025-08-23",
+    "returned": true
+  }
+]

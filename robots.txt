@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /client/my-
+Disallow: /client/home.html
+Disallow: /client/payments.html
+Disallow: /client/support.html
+Disallow: /login.html
+Disallow: /register.html
+Disallow: /logout.html
+Disallow: /data/
+Disallow: /tests/
+Disallow: /scripts/
+Sitemap: http://localhost:4173/sitemap.xml

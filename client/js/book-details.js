@@ -1,0 +1,20 @@
+
+(async function(){
+  const params = new URLSearchParams(location.search);
+  const id = parseInt(params.get('id') || '1', 10);
+  const books = await LMS_DATA.fetchJSON('../data/books.json');
+  const extra = LMS_DATA.readExtras('books_extra');
+  const all = books.concat(extra);
+  const b = all.find(x=>x.id===id) || all[0];
+  const el = document.getElementById('bookCard');
+  el.innerHTML = `
+    <div class="small">${b.category} • ${b.year}</div>
+    <h2>${b.title}</h2>
+    <div class="small">by ${b.author}</div>
+    <div class="space"></div>
+    <p>ISBN: ${b.isbn}</p>
+    <p>Copies: ${b.copies} • <span class="badge ${b.available>0?'ok':'danger'}">${b.available>0?b.available+' available':'unavailable'}</span></p>
+    <div class="space"></div>
+    <button class="btn btn-primary">Reserve (demo)</button>
+  `;
+})();

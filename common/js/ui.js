@@ -1,0 +1,78 @@
+
+(function(){
+  const THEME_KEY = 'lms_theme';
+  const ROLE_KEY = 'lms_role';
+
+  function applyTheme(theme){
+    const t = theme || localStorage.getItem(THEME_KEY) || 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  }
+  function toggleTheme(){
+    const cur = localStorage.getItem(THEME_KEY) || 'light';
+    const next = cur === 'light' ? 'dark' : 'light';
+    localStorage.setItem(THEME_KEY, next);
+    applyTheme(next);
+    document.querySelectorAll('[data-toggle-theme]').forEach(b => {
+      b.textContent = (next === 'dark' ? '☀️ Light' : '🌙 Dark');
+    });
+  }
+  function buildHeader(opts){
+    const role = localStorage.getItem(ROLE_KEY);
+    const isAdmin = role === 'admin';
+    const prefix = (opts && opts.prefix) ? opts.prefix : './';
+
+    const adminLinks = [
+      {href: prefix + 'admin/dashboard.html', label:'Dashboard'},
+      {href: prefix + 'admin/books.html', label:'Books'},
+      {href: prefix + 'admin/members.html', label:'Members'},
+      {href: prefix + 'admin/issue-book.html', label:'Issue'},
+      {href: prefix + 'admin/return-book.html', label:'Return'},
+      {href: prefix + 'admin/reservations.html', label:'Reservations'},
+      {href: prefix + 'admin/reports.html', label:'Reports'},
+    ];
+
+    const userLinks = [
+      {href: prefix + 'client/home.html', label:'Home'},
+      {href: prefix + 'client/catalog.html', label:'Catalog'},
+      {href: prefix + 'client/my-loans.html', label:'My Loans'},
+      {href: prefix + 'client/my-reservations.html', label:'My Reservations'},
+      {href: prefix + 'client/my-account.html', label:'Account'},
+      {href: prefix + 'client/support.html', label:'Support'},
+    ];
+
+    const links = isAdmin ? adminLinks : userLinks;
+    const header = document.querySelector('.header');
+    if(!header) return;
+
+    header.innerHTML = `
+      <div class="container">
+        <div class="nav">
+          <a class="brand" href="${prefix}index.html"><span class="dot"></span><span>LMS</span></a>
+          <nav class="nav-links desktop">${links.map(l => `<a href="${l.href}">${l.label}</a>`).join('')}</nav>
+          <div class="right-actions">
+            ${isAdmin ? `<a class="btn" href="${prefix}client/home.html">Client View</a>` : ''}
+            <button class="btn" data-toggle-theme>${(localStorage.getItem(THEME_KEY) || 'light') === 'dark' ? '☀️ Light' : '🌙 Dark'}</button>
+            <a class="btn btn-ghost" href="${prefix}logout.html">Logout</a>
+            <button class="hamburger" aria-label="Menu" title="Menu"><span></span><span></span><span></span></button>
+          </div>
+        </div>
+        <div class="mobile-panel"></div>
+      </div>`;
+
+    const path = location.pathname.replace(/\\/g,'/');
+    header.querySelectorAll('.nav-links a').forEach(a => {
+      if(path.endsWith(a.getAttribute('href').split('/').pop())) a.classList.add('active');
+    });
+
+    const mp = header.querySelector('.mobile-panel');
+    mp.innerHTML = links.map(l => `<a href="${l.href}">${l.label}</a>`).join('')
+      + `${isAdmin ? `<a href="${prefix}client/home.html">Client View</a>` : ''}`
+      + `<a href="${prefix}logout.html">Logout</a>`;
+
+    header.querySelector('[data-toggle-theme]').addEventListener('click', toggleTheme);
+    header.querySelector('.hamburger').addEventListener('click', () => mp.classList.toggle('open'));
+    applyTheme();
+  }
+
+  window.LMS_UI = { applyTheme, toggleTheme, buildHeader };
+})();

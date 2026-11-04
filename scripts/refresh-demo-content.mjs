@@ -1,0 +1,15 @@
+// One-time editorial refresh of the supplied sample fixtures. All titles are demo content.
+import { readFile, writeFile } from 'node:fs/promises';
+const path=new URL('../data/books.json',import.meta.url);
+const books=JSON.parse(await readFile(path,'utf8'));
+const titles=[['The Atlas of Small Wonders','Elena Brooks','Literature'],['Notes from a Quiet Garden','Oliver Hayes','Nature'],['A Brief Map of Tomorrow','Nora Bennett','Science'],['The Architecture of Everyday Life','Julian Reed','Design'],['Letters to the Open Sea','Clara West','Fiction'],['The Shape of Good Ideas','Theo Morgan','Technology'],['Beyond the Familiar Sky','Amelia Stone','Science'],['An Unhurried Kind of Life','Henry Cole','Wellbeing'],['The City Between the Lines','Isabel Hart','Fiction'],['The Curious Mind’s Notebook','Elliot James','Non-fiction'],['A Field Guide to New Beginnings','Sophie Lane','Wellbeing'],['Light Through the Old Windows','Arthur Ellis','History'],['Patterns in the Living World','Maya Rivers','Nature'],['The Craft of Seeing Clearly','Leo Foster','Design'],['Conversations with the Future','Eva Collins','Technology'],['The Long Way Through Spring','Louis Blake','Fiction'],['Stories from the Night Train','Alice Rowan','Literature'],['A Pocketful of Constellations','Felix Woods','Science'],['The Art of Making Room','Emma Vale','Design'],['Where the River Remembers','Oscar Finch','History'],['The Thoughtful Machine','Ada Parker','Technology'],['Walking the Quiet Paths','Iris Green','Nature'],['A Study in Everyday Wonder','Miles Arden','Non-fiction'],['The House of Unfinished Maps','Lily March','Fiction'],['Learning to Begin Again','Noah Wren','Wellbeing'],['An Almanac of Lost Places','Rose Linden','History'],['The Poetry of Ordinary Days','Finn Avery','Literature'],['The Human Side of Progress','Zoe Ellis','Technology'],['On the Edge of Discovery','Simon Wells','Science'],['The Last Light of Summer','Lucy Ash','Fiction']];
+for(let i=0;i<books.length;i++){
+ const b=books[i];if(!b.title.startsWith('Sample Book'))continue;
+ const [title,author,category]=titles[i];Object.assign(b,{title,author,category,description:`${title} invites you to look a little closer at the world around you. This ${category.toLowerCase()} selection from our demonstration collection brings fresh perspectives and a moment of discovery to your reading day.`,year:2020+i%6});
+}
+await writeFile(path,JSON.stringify(books,null,2)+'\n');
+const memberPath=new URL('../data/members.json',import.meta.url);const members=JSON.parse(await readFile(memberPath,'utf8'));
+const names=['Amelia Clarke','Daniel Kim','Sofia Patel','James Wilson','Maya Johnson','Oliver Chen','Isabel Garcia','Leo Thompson','Eva Williams','Henry Davis','Chloe Martin','Lucas Brown','Aria Taylor','Ethan Moore','Alex Morgan'];
+members.forEach((m,i)=>{if(/^Member \d+$/.test(m.name))m.name=names[i];});
+await writeFile(memberPath,JSON.stringify(members,null,2)+'\n');
+console.log('Demo fixture copy refreshed; record IDs and borrowing history retained.');

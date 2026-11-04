@@ -1,0 +1,24 @@
+
+(async function(){
+  const base = await LMS_DATA.fetchJSON('../data/books.json');
+  const extra = LMS_DATA.readExtras('books_extra');
+  const all = base.concat(extra);
+  function render(items){
+    const body = document.getElementById('booksBody');
+    body.innerHTML = items.map(b=>`
+      <tr><td>${b.id}</td><td>${b.title}</td><td>${b.author}</td><td>${b.category}</td><td>${b.year}</td><td>${b.available}</td></tr>
+    `).join('');
+  }
+  function filter(){
+    const q = $('#searchBooks').val().toLowerCase();
+    const items = all.filter(b =>
+      b.title.toLowerCase().includes(q) ||
+      b.author.toLowerCase().includes(q) ||
+      b.category.toLowerCase().includes(q) ||
+      b.isbn.toLowerCase().includes(q)
+    );
+    render(items);
+  }
+  $('#searchBooks').on('input', filter);
+  render(all);
+})();

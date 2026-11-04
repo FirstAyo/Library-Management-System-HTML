@@ -1,0 +1,52 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+class Storage { data=new Map();getItem(k){return this.data.get(k)??null;}setItem(k,v){this.data.set(k,String(v));}removeItem(k){this.data.delete(k);} }
+globalThis.localStorage=new Storage();globalThis.sessionStorage=new Storage();
+globalThis.fetch=async url=>({ok:true,json:async()=>JSON.parse(await readFile(url,'utf8'))});
+const {demo,addDays}=await import('../common/js/services/demo.js');
+const today=new Date().toISOString().slice(0,10);
+test('roles, issue/return, reservation fulfilment, renewal, and persistence stay consistent',async()=>{
+ await assert.rejects(demo.members(),/sign in/);
+ await assert.rejects(demo.login({email:'user@demo.com',password:'wrong'}),/incorrect/);
+ await demo.login({email:'admin@demo.com',password:'admin123'});
+ const original=await demo.books(); const b=original.find(b=>b.available>1&&b.id>13);
+ assert.ok(b);
+ const input={bookId:b.id,memberEmail:'user@demo.com',issueDate:today,dueDate:addDays(today,14)};
+ await assert.rejects(demo.issue({...input,memberEmail:'missing@demo.com'}),/active library member/);
+ await assert.rejects(demo.issue({...input,dueDate:today}),/after the issue/);
+ await demo.login({email:'user@demo.com',password:'user123'});
+ await assert.rejects(demo.saveBook({title:'Forbidden'}),/administrator/);
+ assert.ok((await demo.loans()).every(l=>l.memberEmail==='user@demo.com'));
+ const reservation=await demo.reserve(b.id);
+ await assert.rejects(demo.reserve(b.id),/already have an active reservation/);
+ await demo.login({email:'admin@demo.com',password:'admin123'});
+ const loan=await demo.issue(input);
+ assert.equal((await demo.books()).find(x=>x.id===b.id).available,b.available-1);
+ assert.equal((await demo.reservations()).find(r=>r.id===reservation.id).status,'fulfilled');
+ await assert.rejects(demo.issue(input),/already has an active loan/);
+ await assert.rejects(demo.saveBook({...b,copies:0}),/positive whole/);
+ await demo.login({email:'user@demo.com',password:'user123'});
+ const renewed=await demo.renew(loan.id);assert.equal(renewed.dueDate,addDays(input.dueDate,14));
+ await assert.rejects(demo.renew(loan.id),/renewed once/);
+ await assert.rejects(demo.returnLoan(loan.id),/administrator/);
+ await demo.profile({name:'Test Reader'});assert.equal((await demo.session()).name,'Test Reader');
+ await demo.login({email:'admin@demo.com',password:'admin123'});
+ await demo.returnLoan(loan.id);
+ assert.equal((await demo.books()).find(x=>x.id===b.id).available,b.available);
+ await assert.rejects(demo.returnLoan(loan.id),/already returned/);
+ assert.ok((await demo.activity()).some(a=>a.text.startsWith('Returned')));
+ const saved=JSON.parse(localStorage.getItem('folio_demo_v1'));assert.equal(saved.loans.find(l=>l.id===loan.id).returned,true);
+ await demo.logout();assert.equal(await demo.session(),null);
+});
+test('a reservation can be cancelled and then placed again',async()=>{
+ await demo.login({email:'user@demo.com',password:'user123'});
+ const b=(await demo.books()).find(b=>b.id===29);
+ const r=await demo.reserve(b.id);await demo.cancelReservation(r.id);
+ assert.equal((await demo.reservations()).find(x=>x.id===r.id).status,'cancelled');
+ assert.ok(await demo.reserve(b.id));
+ await assert.rejects(demo.register({}),/backend/);
+});
+test('month and year boundaries renew correctly',()=>{
+ assert.equal(addDays('2026-12-25',14),'2027-01-08');assert.equal(addDays('2028-02-20',14),'2028-03-05');
+});
